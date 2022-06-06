@@ -21,7 +21,6 @@ if __name__ == '__main__':
         con_file = con.makefile('rw')
     except Exception as err:
         print (err)
-        con.close()
         exit()
 
     # первичное подключение
