@@ -6,6 +6,7 @@ import socket
 import json
 
 VERSION = '0.1.0'
+TYPE = 'handler'
 
 if __name__ == '__main__':
     # создаем аргументы для запуска программы
@@ -23,7 +24,11 @@ if __name__ == '__main__':
         exit()
 
     # первичное подключение
-    con_file.write(json.dumps({'action':'init','version':VERSION}) + "\n")
+    con_file.write(json.dumps({
+        'action':'init',
+        'type':TYPE,
+        'version':VERSION
+        }) + "\n")
     con_file.flush()
 
     # ожидание подтверждения от сервера
