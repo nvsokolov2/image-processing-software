@@ -21,6 +21,7 @@ if __name__ == '__main__':
         con_file = con.makefile('rw')
     except Exception as err:
         print (err)
+        con.close()
         exit()
 
     # первичное подключение
@@ -38,10 +39,12 @@ if __name__ == '__main__':
 
         if resp['action'] != 'approved':
             print ('Server did not approved connection')
+            con.close()
             exit()
     except Exception as err:
         print ('Server sended wrong response')
         print ('\t{}'.format(err))
+        con.close()
         exit()
 
     # временный режим echo (отправляет обратно то, что приняли)
